@@ -1,0 +1,38 @@
+﻿@model Exercise
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Shared/_akadminpg.cshtml";
+}
+
+<h1>hello</h1>
+<form method="post">
+    <div class="border p-3 pt-5 mt-5">
+        <div class="text-primary">
+            <h2>Register a new Exercise</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="MuscleGroup" class="p-0"></label>
+            <input asp-for="MuscleGroup" type="text" class="form-control" />
+            <span asp-validation-for="MuscleGroup" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label asp-for="ExerciseName" class="p-0"></label>
+            <input asp-for="ExerciseName" type="text" class="form-control" />
+            <span asp-validation-for="ExerciseName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <div class="col-6 col-md-4">
+                <button type="submit" class="btn btn-primary form-control">Resgister</button>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <a asp-controller="Exercise" asp-action="Index" class="btn btn-outline-secondary form-control">
+                    Back to Exerises
+                </a>
+            </div>
+        </div>
+</form>

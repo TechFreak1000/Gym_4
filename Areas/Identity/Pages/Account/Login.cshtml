@@ -1,0 +1,115 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+
+
+<section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+
+    <div class="bg-overlay"></div>
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-2">
+                <div class="card">
+                    <div class="card-header bg-gradient-dark">
+                        <h4 class="btn-gradd text-light text-center ">Login</h4>
+                    </div>
+                    <div class="card-body font-weight-bold m-1">
+                        <form id="account" method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input asp-for="Input.Email" class="form-control mt-1" id="email" autocomplete="username" aria-required="true" placeholder="Enter your email" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input asp-for="Input.Password" type="password" class="form-control mt-1" id="password" autocomplete="current-password" aria-required="true" placeholder="Enter your password" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check ">
+                                <input class="form-check-input border-1 " asp-for="Input.RememberMe" id="rememberMe" />
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <button id="login-submit" type="submit" class="btn-grad btn-primary btn-block">Login</button>
+                        </form>
+                        <hr>
+                        <div class=" font-weight-bold text-center">
+                            <a asp-page="./ForgotPassword">Forgot your password?</a> |
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a> |
+                            <a asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .form-check .form-check-input{
+            float: left;
+            margin-left: -1.5em;
+            border-block:dashed
+        }
+
+        .form-check-input{
+            border: var(--bs-border-width) solid #206f96
+        }
+        .btn-grad {
+            background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
+            margin: 10px;
+            padding: 15px 40px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .btn-gradd {
+            background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            
+           
+            display: block;
+        }
+
+            .btn-grad:hover {
+                background-position: right center; /* change the direction of the change here */
+               
+                text-decoration: none;
+            }
+
+    </style>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+    

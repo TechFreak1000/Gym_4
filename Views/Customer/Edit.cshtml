@@ -1,0 +1,76 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Shared/_akadminpg.cshtml";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="text-primary">
+            <h2>Edit Customer Details</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" type="text" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label asp-for="PhoneNumber" class="p-0"></label>
+            <input asp-for="PhoneNumber" type="number" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="DOB" class="p-0"></label>
+            <input asp-for="DOB" type="date" class="form-control" />
+            <span asp-validation-for="DOB" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="Email" class="p-0"></label>
+            <input asp-for="Email" type="text" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="UserName" class="p-0"></label>
+            <input asp-for="UserName" type="text" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="PIN" class="p-0">PIN</label>
+            <input asp-for="PIN" type="number" class="form-control" />
+            <span asp-validation-for="PIN" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="Gender" class="p-0">Gender</label>
+            Male<input asp-for="Gender" type="radio" name="gender" value="male">
+            Female<input asp-for="Gender" type="radio" name="gender" value="female">
+            Others<input asp-for="Gender" type="radio" name="gender" value="Others">
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="DateOfResgistration" class="p-0"></label>
+            <input asp-for="DateOfResgistration" type="date" class="form-control" />
+            <span asp-validation-for="DateOfResgistration" class="text-danger"></span>
+        </div>
+
+
+        <div class="mb-3 row p-1">
+            <div class="col-6 col-md-4">
+                <button type="submit" class="btn btn-primary form-control">Update Detials</button>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <a asp-controller="Customer" asp-action="Index" class="btn btn-outline-secondary form-control">
+                    Back to Customer List
+                </a>
+            </div>
+        </div>
+</form>

@@ -1,0 +1,319 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Leo Fitness</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/akadminpg/vendors/mdi/css/materialdesignicons.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/akadminpg/vendors/css/vendor.bundle.base.css" asp-append-version="true">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href=~/akadminpg/vendors/jvectormap/jquery-jvectormap.css asp-append-version="true">
+    <link rel="stylesheet" href=~/akadminpg/vendors/flag-icon-css/css/flag-icon.min.css asp-append-version="true">
+    <link rel="stylesheet" href=~/akadminpg/vendors/owl-carousel-2/owl.carousel.min.css asp-append-version="true">
+    <link rel="stylesheet" href=~/akadminpg/vendors/owl-carousel-2/owl.theme.default.min.css asp-append-version="true">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/akadminpg/css/style11.css" asp-append-version="true">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/akadminpg/images/favicon.png" / asp-append-version="true">
+
+
+
+
+</head>
+<body style="background-color: rgb(150, 150, 150)">
+
+
+
+    <header>
+    <div class="container-scroller">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top h-20   ">
+            <h1 class="menu-title p-lg-3 ">Leo</h1>
+           @*  <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/Leologo.jpg" alt="logo" /></a> *@
+            </div> 
+    
+               
+            <ul class="nav pt-5 mt-5">
+
+
+                    <!-- DashBoard -->
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" asp-area="" asp-controller="home" asp-action="Index">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-speedometer"></i>
+                            </span>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+
+                @if (User.IsInRole(SD.Role_Admin))
+                    {
+                        <!-- MANAGE MEMBERS -->
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                                <span class="menu-icon">
+                                    <i class="mdi mdi-laptop"></i>
+                                </span>
+                                <span class="menu-title"> Manage Members</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Customer" asp-action="Index"> -> List All Members</a></li>
+                                    <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">-> Member Entry Form</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    }
+
+                <!-- EXERCISE -->
+                 @if (User.IsInRole(SD.Role_Admin))
+                    {
+                        <li class="nav-item menu-items">
+                            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic2">
+                                <span class="menu-icon">
+                                    <i class="mdi mdi-playlist-play"></i>
+                                </span>
+                                <span class="menu-title">Exercise</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="ui-basic2">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Exercise" asp-action="Index">-> List Exercise </a></li>
+                                    <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Exercise" asp-action="Create">-> Register Exercise </a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    }
+
+
+
+                    <!-- CARDS -->
+                <li class="nav-item menu-items">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-playlist-play"></i>
+                        </span>
+                        <span class="menu-title">Cards</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                        <div class="collapse" id="ui-basic3">
+                        <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Card" asp-action="Index">-> List Cards </a></li>
+                            @* <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html">-> Register Cards </a></li> *@
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                    <!-- ATTENDANCE -->
+
+                 @* <li class="nav-item menu-items">
+                  <a class="nav-link" href="pages/tables/basic-table.html">
+                    <span class="menu-icon">
+                      <i class="mdi mdi-table-large"></i>
+                    </span>
+                    <span class="menu-title">Attendance</span>
+                  </a>
+                </li>  *@
+
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#autha" aria-expanded="false" aria-controls="autha">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Attendance</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="autha">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html">-> Check-In </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html">-> Check-Out </a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                    <!-- Announcement -->
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="pages/icons/mdi.html">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-contacts"></i>
+                        </span>
+                        <span class="menu-title">Announcement</span>
+                    </a>
+                </li>
+
+                    <!-- Payment -->
+                <li class="nav-item menu-items">
+                    <a class="nav-link" href="">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-file-document-box"></i>
+                        </span>
+                        <span class="menu-title">Payment</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Top Navbar -->
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <!-- <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a> -->
+                    <h1 class="menu-title p-lg-3 ">Leo</h1>
+                </div>
+
+                    <!-- Search bar -->
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                <input type="text" class="form-control" placeholder="Search ">
+                            </form>
+                        </li>
+                    </ul>
+
+
+                    <ul class="navbar-nav navbar-nav-right">
+
+                           
+
+                        @* <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                            <h6 class="p-3 mb-0">Messages</h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item"></a>
+                            <div class="preview-thumbnail">
+                                <img src="assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-settings text-danger"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject mb-1">Settings</p>
+                                    <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-link-variant text-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject mb-1">Launch Admin</p>
+                                    <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0 text-center">See all notifications</p>
+                        </div> *@
+
+                            <li class="nav-item">
+                                <a id="manage" class="nav-link mb-0 d-none d-sm-block navbar-profile-name" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                            </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="~/assets/images/faces/face15.jpg" alt="">
+
+                                        <i class="mdi mdi-menu-down d-none d-sm-block fas fa-user fa-fw "></i>
+                                   @*  <i class="mdi mdi-menu-down d-none d-sm-block"></i> *@
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                                <h6 class="p-3 mb-0">Profile</h6>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-settings text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Settings</p>
+                                    </div>
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content69">
+                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                <button id="logout" type="submit" class="nav-link btn btn-link  border-0"><p class="preview-subject mb-1">Logout</p></button>
+                                        </form>
+                                    </div>
+                                </a>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+
+    </header>
+
+    
+
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            <script src="~/akadminpg/vendors/js/vendor.bundle.base.js"></script>
+            <script src="~/akadminpg/js/off-canvas.js"></script>
+            <script src="~/akadminpg/js/hoverable-collapse.js"></script>
+            <script src="~/akadminpg/js/misc.js"></script>
+            <script src="~/akadminpg/js/settings.js"></script>
+            <script src="~/akadminpg/js/todolist.js"></script>
+            <script src="~/akadminpg/js/dashboard.js"></script>
+            @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
