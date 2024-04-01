@@ -1,75 +1,71 @@
-﻿@model Customer
+﻿@model ApplicationUser
+
 @{
     ViewData["Title"] = "Admin Page";
     Layout = "~/Views/Shared/_akadminpg.cshtml";
 }
-<form method="post">
-    <input asp-for="Id" hidden />
-    <div class="border p-3 mt-4">
-        <div class="text-primary">
-            <h2>Remove Customer </h2>
-            <hr />
-        </div>
 
-        <div class="mb-3 row">
-            <label asp-for="Name" class="p-0"></label>
-            <input asp-for="Name" disabled type="text" class="form-control" />
-       
-        </div>
+<div class="row mt-5 pt-5 ml-3">
+    <div class="row justify-content-center">
+        <div class="col-10 mt-1">
+            <div class="card">
+                <div class="card-header col-16">
+                    <form id="registerForm" class="row " method="post">
+                        <h2 class="mb-4 ">Create a new account.</h2>
+                        <br />
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
-        <div class="mb-3 row p-1">
-            <label asp-for="PhoneNumber" class="p-0"></label>
-            <input asp-for="PhoneNumber" disabled type="number" class="form-control" />
-           
-        </div>
+                        <!-- Full name -->
+                        <div class="form-floating col-12 mb-3">
+                            <label asp-for="FullName">Full Name</label>
+                            <input asp-for="FullName" class="form-control text-light" placeholder="Enter your Full Name" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
 
-        <div class="mb-3 row">
-            <label asp-for="DOB" class="p-0"></label>
-            <input asp-for="DOB" disabled type="date" class="form-control" />
-           
-        </div>
+                        <!-- Phone Number -->
+                        <div class="form-floating col-6 mb-3">
+                            <label asp-for="PhoneNumber">Phone Number</label>
+                            <input asp-for="PhoneNumber" class="form-control text-light" placeholder="Enter your PhoneNumber" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
 
-        <div class="mb-3 row">
-            <label asp-for="Email" class="p-0"></label>
-            <input asp-for="Email" disabled type="text" class="form-control" />
-           
-        </div>
+                        <!-- Email -->
+                        <div class="form-floating col-6 mb-3">
+                            <label asp-for="Email">Email</label>
+                            <input asp-for="Email" class="form-control text-light" autocomplete="username" aria-required="true" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
 
-        <div class="mb-3 row">
-            <label asp-for="UserName" class="p-0"></label>
-            <input asp-for="UserName" disabled type="text" class="form-control" />
-           
-        </div>
-
-        <div class="mb-3 row">
-            <label asp-for="PIN" class="p-0">PIN</label>
-            <input asp-for="PIN" disabled type="number" class="form-control" />
-            
-        </div>
-
-        <div class="mb-3 row">
-            <label asp-for="Gender" class="p-0">Gender</label>
-            Male<input asp-for="Gender" disabled type="radio" name="gender" value="male">
-            Female<input asp-for="Gender" disabled type="radio" name="gender" value="female">
-            Others<input asp-for="Gender" disabled type="radio" name="gender" value="Others">
-        </div>
-
-        <div class="mb-3 row">
-            <label asp-for="DateOfResgistration" class="p-0"></label>
-            <input asp-for="DateOfResgistration" disabled type="date" class="form-control" />
-            
-        </div>
+                        <!-- Gender -->
+                        <div class="form-floating  col-6 mb-3">
+                            <label asp-for="Gender">Gender</label>
+                            <input asp-for="Gender" class="form-control text-light" placeholder="Enter your Gender" />
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
 
 
-        <div class="mb-3 row p-1">
-            <div class="col-6 col-md-4">
-                <button type="submit" class="btn btn-danger form-control">Remove</button>
-            </div>
+                        <!-- DOR -->
+                        <div class="form-floating  col-6 mb-3">
+                            <label asp-for="DOR">Date of Registration</label>
+                            <input asp-for="DOR" type="date" class="form-control text-light text-muted" placeholder="Enter your DOR" />
+                            <span asp-validation-for="DOR" class="text-danger"></span>
+                        </div>
 
-            <div class="col-6 col-md-4">
-                <a asp-controller="Customer" asp-action="Index" class="btn btn-outline-secondary form-control">
-                    Back to Customer List
-                </a>
+                        <!-- DOB -->
+                        <div class="form-floating col-6 mb-3">
+                            <label asp-for="DOB">Date of Birth</label>
+                            <input asp-for="DOB" type="date" class="form-control text-muted text-light" placeholder="Enter your DOB" />
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Remove Customer</button>
+                    </form>
+                </div>
             </div>
         </div>
-</form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

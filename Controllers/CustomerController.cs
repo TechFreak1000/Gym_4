@@ -38,16 +38,16 @@ namespace Gym.Controllers
             }
             return View();
         }
-        public IActionResult Edit(int? Pid)
+        public IActionResult Edit(int? id)
         {
-            if(Pid == null || Pid == 0)
+            if(id == null || id == 0)
             {
                 return NotFound();
             }
 
-            Customer customerFromDB = _db.CustomerDetail.Find(Pid);
-            Customer customerFromDB1 = _db.CustomerDetail.FirstOrDefault(u=>u.Id==Pid);
-            Customer customerFromDB2 = _db.CustomerDetail.Where(u => u.Id == Pid).FirstOrDefault();
+            Customer customerFromDB = _db.CustomerDetail.Find(id);
+            Customer customerFromDB1 = _db.CustomerDetail.FirstOrDefault(u=>u.Id==id);
+            Customer customerFromDB2 = _db.CustomerDetail.Where(u => u.Id == id).FirstOrDefault();
 
             if (customerFromDB == null)
             {
@@ -68,16 +68,16 @@ namespace Gym.Controllers
         }
 
 
-        public IActionResult Delete(int? Pid)
+        public IActionResult Delete(int? id)
         {
-            if (Pid == null || Pid == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
 
-            Customer customerFromDB = _db.CustomerDetail.Find(Pid);
-            Customer customerFromDB1 = _db.CustomerDetail.FirstOrDefault(u => u.Id == Pid);
-            Customer customerFromDB2 = _db.CustomerDetail.Where(u => u.Id == Pid).FirstOrDefault();
+            Customer customerFromDB = _db.CustomerDetail.Find(id);
+            Customer customerFromDB1 = _db.CustomerDetail.FirstOrDefault(u => u.Id == id);
+            Customer customerFromDB2 = _db.CustomerDetail.Where(u => u.Id == id).FirstOrDefault();
 
             if (customerFromDB == null)
             {

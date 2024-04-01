@@ -8,8 +8,6 @@ namespace Gym.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Key]
-        public new int Id { get; set; }
         public string Role { get; set; }
 
         public required string FullName { get; set; }

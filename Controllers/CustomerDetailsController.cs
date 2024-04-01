@@ -21,14 +21,14 @@ namespace Gym.Controllers
                 return View(objApplicationUserList);
             }
 
-            public IActionResult Edit(int? id)
-            {
-                if (id == null || id == 0)
+            public IActionResult Edit(string Id)
+            { 
+                if (Id  == null)
                 {
                     return NotFound();
                 }
 
-                ApplicationUser customerFromDB = _db.ApplicationUser.Find(id);
+                ApplicationUser customerFromDB = _db.ApplicationUser.Find(Id);
 
                 if (customerFromDB == null)
                 {
@@ -39,24 +39,23 @@ namespace Gym.Controllers
             [HttpPost]
             public IActionResult Edit(ApplicationUser obj)
             {
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     _db.ApplicationUser.Update(obj);
                     _db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                    //return RedirectToAction("Index");
+               // }
                 return View();
             }
 
-
-            public IActionResult Delete(int? id)
+            public IActionResult Delete(string? Id)
             {
-                if (id == null || id == 0)
+                if (Id == null )
                 {
                     return NotFound();
                 }
 
-                ApplicationUser customerFromDB = _db.ApplicationUser.Find(id);
+                ApplicationUser customerFromDB = _db.ApplicationUser.Find(Id);
                
                 if (customerFromDB == null)
                 {
@@ -67,16 +66,16 @@ namespace Gym.Controllers
 
 
             [HttpPost, ActionName("Delete")]
-            public IActionResult DeletePOST(int? id)
+            public IActionResult DeletePOST(string? Id)
             {
-                Customer obj = _db.CustomerDetail.Find(id);
+                ApplicationUser obj = _db.ApplicationUser.Find(Id);
                 if (obj == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-                    _db.CustomerDetail.Remove(obj);
+                    _db.ApplicationUser.Remove(obj);
                     _db.SaveChanges();
                     return RedirectToAction("Index");
                 }
