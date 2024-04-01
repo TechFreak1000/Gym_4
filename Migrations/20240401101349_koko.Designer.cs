@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gym.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240328093254_migration1")]
-    partial class migration1
+    [Migration("20240401101349_koko")]
+    partial class koko
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace Gym.Migrations
                             Id = 1,
                             BMI = 22.0,
                             DOB = new DateOnly(2003, 6, 13),
-                            DateOfResgistration = new DateOnly(2024, 3, 28),
+                            DateOfResgistration = new DateOnly(2024, 4, 1),
                             Email = "dandwateakshay77@gmail.com",
                             Gender = "Male",
                             Name = "Akshay",
@@ -89,7 +89,7 @@ namespace Gym.Migrations
                             Id = 2,
                             BMI = 22.0,
                             DOB = new DateOnly(2003, 6, 13),
-                            DateOfResgistration = new DateOnly(2024, 3, 28),
+                            DateOfResgistration = new DateOnly(2024, 4, 1),
                             Email = "shubhamjoshi@gmail.com",
                             Gender = "Male",
                             Name = "Shubham Joshi",
@@ -341,8 +341,8 @@ namespace Gym.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("BMI")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("BMI")
+                        .HasColumnType("int");
 
                     b.Property<DateOnly?>("DOB")
                         .HasColumnType("date");
@@ -355,6 +355,10 @@ namespace Gym.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");

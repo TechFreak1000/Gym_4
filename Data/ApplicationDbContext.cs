@@ -19,7 +19,7 @@ namespace Gym.Data
         public DbSet<Customer> CustomerDetail { get; set; }
         public DbSet<Exercise> ExerciseDetail { get; set; }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 
             
@@ -31,7 +31,19 @@ namespace Gym.Data
                 Id = 1,
                 MuscleGroup = "Chest",
                 ExerciseName = "Benchpress"
-            });
+            }); 
+            //modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
+            //{
+            //    Id = 1,
+            //    FullName = "Akshay",
+            //    DOR = DateOnly.FromDateTime(DateTime.Now),
+            //    DOB = new DateOnly(2003, 6, 13),
+            //    Email = "dandwateakshay77@gmail.com",
+            //    PhoneNumber = "9158559339",
+            //    Gender = "Male",
+            //    BMI = 22,
+            //},
+
             modelBuilder.Entity<Customer>().HasData(new Customer
             {   Id = 1,
                 Name = "Akshay",

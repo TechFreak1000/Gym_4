@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Gym.Migrations
 {
     /// <inheritdoc />
-    public partial class migration1 : Migration
+    public partial class ohoho : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,7 @@ namespace Gym.Migrations
                     DOB = table.Column<DateOnly>(type: "date", nullable: true),
                     DOR = table.Column<DateOnly>(type: "date", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BMI = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BMI = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -204,8 +204,8 @@ namespace Gym.Migrations
                 columns: new[] { "Id", "BMI", "DOB", "DateOfResgistration", "Email", "Gender", "Name", "PIN", "PhoneNumber", "UserName" },
                 values: new object[,]
                 {
-                    { 1, 22.0, new DateOnly(2003, 6, 13), new DateOnly(2024, 3, 28), "dandwateakshay77@gmail.com", "Male", "Akshay", 2003, "9158559339", "ak2003" },
-                    { 2, 22.0, new DateOnly(2003, 6, 13), new DateOnly(2024, 3, 28), "shubhamjoshi@gmail.com", "Male", "Shubham Joshi", 2002, "9370110732", "ShubhamJoshi32" }
+                    { 1, 22.0, new DateOnly(2003, 6, 13), new DateOnly(2024, 4, 1), "dandwateakshay77@gmail.com", "Male", "Akshay", 2003, "9158559339", "ak2003" },
+                    { 2, 22.0, new DateOnly(2003, 6, 13), new DateOnly(2024, 4, 1), "shubhamjoshi@gmail.com", "Male", "Shubham Joshi", 2002, "9370110732", "ShubhamJoshi32" }
                 });
 
             migrationBuilder.InsertData(

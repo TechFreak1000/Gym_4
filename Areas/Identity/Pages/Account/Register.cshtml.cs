@@ -108,15 +108,15 @@ namespace Gym.Areas.Identity.Pages.Account
             public string Role { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
-
+            [Key]
+            public new int Id { get; set; }
             [Required]
             public string FullName { get; set; }
             public DateOnly? DOB { get; set; }
             public DateOnly? DOR { get; set; }
             public string? Gender { get; set; }
-            public string? BMI { get; set; }
+            public int? BMI { get; set; }
             public string? PhoneNumber { get; set; }
-
         }
 
 
