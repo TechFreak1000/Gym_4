@@ -27253,7 +27253,7 @@ div.tagsinput {
   border-top: 0;
   border-bottom-width: 1px;
   font-weight: 500;
-  color: #6c7293;
+  /*color: #6c7293;*/
 }
 .table thead th i,
 .jsgrid .jsgrid-table thead th i {

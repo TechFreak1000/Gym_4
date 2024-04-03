@@ -5,38 +5,42 @@
 }
 
 <style>
-
-    .table, .th, .td, .tr {
-        border-bottom: 1px solid #ddd;
-        color: white;
+    .table thead {
+        background-color: #343a40; /* Dark background color */
+        color: #fff; /* White text color */
     }
 
+    .table tbody tr,
+    .table tbody th,
+    .table tbody td {
+        color: #000; /* Dark text color */
+    }
+
+    .white-text {
+        color: #fff; /* White text color */
+    }
 </style>
 
-<div class="container mt-5 pt-5 ">
+<div class="container mt-5 pt-5">
     <div class="row pt-4 pb-3">
         <div class="col-6">
             <h2 class="text-dark">Customer Details</h2>
         </div>
-        @* <div class="col-6 text-end">
-        <a asp-controller="Customer" asp-action="Create" class="btn btn-primary">
-        <i class="bi bi-plus-square"></i> Register New Customer
-        </a>
-        </div> *@
     </div>
-    <table class=" table table-bordered ">
+    <div class="table-responsive">
+        <table class="table table-bordered">    
         <thead>
             <tr>
-                <th>
+                <th class="white-text">
                     Customer Name
                 </th>
-                <th>
+                <th class="white-text">
                     Gender
                 </th>
-                <th>
+                <th class="white-text">
                     Phone Number
                 </th>
-                <th>
+                <th class="white-text">
                     Edit Details
                 </th>
             </tr>
@@ -64,3 +68,10 @@
         </tbody>
     </table>
 </div>
+</div>
+
+
+
+
+
+            

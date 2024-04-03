@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gym.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240401101349_koko")]
-    partial class koko
+    [Migration("20240401182642_blah")]
+    partial class blah
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
