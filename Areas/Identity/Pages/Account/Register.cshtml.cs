@@ -142,7 +142,7 @@ namespace Gym.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("/Account/Login");
+            returnUrl ??= Url.Content("~/Account/Login");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
@@ -190,7 +190,7 @@ namespace Gym.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        returnUrl ??= Url.Content("/Account/Login");
+                        return RedirectToPage("/Account/Login");
                     }
                 }
                 foreach (var error in result.Errors)
