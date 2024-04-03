@@ -190,7 +190,7 @@ namespace Gym.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return RedirectToAction("Index");
+                        return RedirectToAction("/Account/Login");
                     }
                 }
                 foreach (var error in result.Errors)
