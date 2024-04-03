@@ -36,6 +36,7 @@ namespace Gym.Controllers
                 }
                 return View(customerFromDB);
             }
+
             [HttpPost]
             public IActionResult Edit(ApplicationUser obj)
             {
@@ -43,29 +44,29 @@ namespace Gym.Controllers
                 //{
                     _db.ApplicationUser.Update(obj);
                     _db.SaveChanges();
-                    //return RedirectToAction("Index");
+                    return RedirectToAction("Index");
                // }
-                return View();
+               // return View();
             }
 
-            public IActionResult Delete(string? Id)
-            {
-                if (Id == null )
-                {
-                    return NotFound();
-                }
+            //public IActionResult Delete(string? Id)
+            //{
+            //    if (Id == null )
+            //    {
+            //        return NotFound();
+            //    }
 
-                ApplicationUser customerFromDB = _db.ApplicationUser.Find(Id);
+            //    ApplicationUser customerFromDB = _db.ApplicationUser.Find(Id);
                
-                if (customerFromDB == null)
-                {
-                    return NotFound();
-                }
-                return View(customerFromDB);
-            }
+            //    if (customerFromDB == null)
+            //    {
+            //        return NotFound();
+            //    }
+            //    return View(customerFromDB);
+            //}
 
 
-            [HttpPost, ActionName("Delete")]
+           
             public IActionResult DeletePOST(string? Id)
             {
                 ApplicationUser obj = _db.ApplicationUser.Find(Id);
