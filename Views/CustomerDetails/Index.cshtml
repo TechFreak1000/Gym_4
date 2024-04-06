@@ -41,7 +41,7 @@
                     Phone Number
                 </th>
                 <th class="white-text">
-                    Edit Details
+                    Remove customer
                 </th>
             </tr>
         </thead>
@@ -54,9 +54,7 @@
                     <td>@obj.PhoneNumber</td>
                     <td>
                         <div class="w-75 btn-group" role="group">
-                            <a asp-controller="CustomerDetails" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
-                                <i class="bi bi-pencil-square"></i>  Edit
-                            </a>
+                            
                             <a asp-controller="CustomerDetails" asp-action="DeletePOST" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
                                 <i class="bi bi-trash-fill"></i>  Remove
                             </a>

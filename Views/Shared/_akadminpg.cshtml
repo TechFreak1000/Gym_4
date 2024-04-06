@@ -100,7 +100,7 @@
                             <div class="collapse" id="ui-basic2">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Exercise" asp-action="Index">-> List Exercise </a></li>
-                                    <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Exercise" asp-action="Create">-> Register Exercise </a></li>
+                                    <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Exercise" asp-action="Create">-> Create Exercise </a></li>
 
                                 </ul>
                             </div>
@@ -121,9 +121,9 @@
                         <div class="collapse" id="ui-basic3">
                         <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Card" asp-action="Index">-> List Cards </a></li>
-                            @* <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html">-> Register Cards </a></li> *@
+                                <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Card" asp-action="CreateCard">-> Create Cards </a></li>
 
-                        </ul>
+                            </ul>
                     </div>
                 </li>
 
@@ -168,6 +168,7 @@
                 </li>
 
                     <!-- Payment -->
+                    @* 
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="">
                         <span class="menu-icon">
@@ -176,6 +177,27 @@
                         <span class="menu-title">Payment</span>
                     </a>
                 </li>
+ *@
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic4">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-file-document-box"></i>
+                            </span>
+                            <span class="menu-title">Payment</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic4">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Payment" asp-action="Index">-> List Plans </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Payment" asp-action="CreateP">-> Create Plans </a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="" asp-controller="Payment" asp-action="PaymentGateway">-> Payment </a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+
+
             </ul>
         </nav>
 

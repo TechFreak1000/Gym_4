@@ -21,33 +21,8 @@ namespace Gym.Controllers
                 return View(objApplicationUserList);
             }
 
-            public IActionResult Edit(string Id)
-            { 
-                if (Id  == null)
-                {
-                    return NotFound();
-                }
-
-                ApplicationUser customerFromDB = _db.ApplicationUser.Find(Id);
-
-                if (customerFromDB == null)
-                {
-                    return NotFound();
-                }
-                return View(customerFromDB);
-            }
-
-            [HttpPost]
-            public IActionResult Edit(ApplicationUser obj)
-            {
-                //if (ModelState.IsValid)
-                //{
-                    _db.ApplicationUser.Update(obj);
-                    _db.SaveChanges();
-                    return RedirectToAction("Index");
-               // }
-               // return View();
-            }
+            
+            
 
             //public IActionResult Delete(string? Id)
             //{
@@ -64,7 +39,6 @@ namespace Gym.Controllers
             //    }
             //    return View(customerFromDB);
             //}
-
 
            
             public IActionResult DeletePOST(string? Id)
